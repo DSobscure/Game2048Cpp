@@ -110,7 +110,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BitBoard.cpp" />
+    <ClCompile Include="BitBoardOperationSet.cpp" />
+    <ClCompile Include="BitBoardScoreTableSet.cpp" />
+    <ClCompile Include="BitBoardShiftTableSet.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="MathComputationTableSet.cpp" />
     <ClCompile Include="Program.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BitBoard.h" />
+    <ClInclude Include="Direction.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Game2048Cpp.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
