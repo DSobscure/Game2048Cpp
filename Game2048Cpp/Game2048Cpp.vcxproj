@@ -114,6 +114,7 @@
     <ClCompile Include="BitBoardTableSet.h" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="MathComputationTableSet.h" />
+    <ClCompile Include="MultiLayerPerceptron.cpp" />
     <ClCompile Include="Program.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -121,6 +122,7 @@
     <ClInclude Include="ConsoleGameEnvironment.h" />
     <ClInclude Include="Direction.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="MultiLayerPerceptron.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>

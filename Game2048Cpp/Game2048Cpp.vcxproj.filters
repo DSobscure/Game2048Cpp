@@ -30,6 +30,9 @@
     <ClCompile Include="MathComputationTableSet.h">
       <Filter>標頭檔</Filter>
     </ClCompile>
+    <ClCompile Include="MultiLayerPerceptron.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -45,6 +48,9 @@
       <Filter>標頭檔</Filter>
     </ClInclude>
     <ClInclude Include="ConsoleGameEnvironment.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="MultiLayerPerceptron.h">
       <Filter>標頭檔</Filter>
     </ClInclude>
   </ItemGroup>
