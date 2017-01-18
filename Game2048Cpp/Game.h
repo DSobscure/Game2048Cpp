@@ -1,5 +1,4 @@
 #pragma once
-#include"Direction.h"
 #include"BitBoard.h"
 
 namespace Game2048_Game_Library

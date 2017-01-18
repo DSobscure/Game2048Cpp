@@ -1,10 +1,4 @@
 #include "BitBoard.h"
-#include "Direction.h"
-#include "BitBoardScoreTableSet.cpp"
-#include "BitBoardShiftTableSet.cpp";
-
-using namespace Game2048_Game_Library_TableSets;
-using namespace Game2048_Game_Library_TableSets;
 
 namespace Game2048_Game_Library
 {
@@ -27,6 +21,7 @@ namespace Game2048_Game_Library
 	BitBoard& BitBoard::operator=(BitBoard other)
 	{
 		this->rawBlocks = other.rawBlocks;
+		return *this;
 	}
 
 	int BitBoard::RawEmptyCountTest(unsigned long long rawBlocks)
@@ -179,61 +174,69 @@ namespace Game2048_Game_Library
 		switch (direction)
 		{
 		case Direction::Up:
-			transposedRawBlocks = BitBoardOperationSet.Transpose(rawBlocks);
-			ColumnShiftInfo shiftUpInfos[4]
 			{
-				BitBoardShiftTableSet.columnShiftUpTable[(transposedRawBlocks >> 0) & 0xFFFF],
-				BitBoardShiftTableSet.columnShiftUpTable[(transposedRawBlocks >> 16) & 0xFFFF],
-				BitBoardShiftTableSet.columnShiftUpTable[(transposedRawBlocks >> 32) & 0xFFFF],
-				BitBoardShiftTableSet.columnShiftUpTable[(transposedRawBlocks >> 48) & 0xFFFF]
-			};
-			for (int i = 0; i < 4; i++)
-			{
-				rawBlocksAfterMove ^= shiftUpInfos[i].column << (4 * i);
-				reward += shiftUpInfos[i].reward;
+				transposedRawBlocks = BitBoardOperationSet.Transpose(rawBlocks);
+				ColumnShiftInfo shiftUpInfos[4]
+				{
+					BitBoardShiftTableSet.columnShiftUpTable[(transposedRawBlocks >> 0) & 0xFFFF],
+					BitBoardShiftTableSet.columnShiftUpTable[(transposedRawBlocks >> 16) & 0xFFFF],
+					BitBoardShiftTableSet.columnShiftUpTable[(transposedRawBlocks >> 32) & 0xFFFF],
+					BitBoardShiftTableSet.columnShiftUpTable[(transposedRawBlocks >> 48) & 0xFFFF]
+				};
+				for (int i = 0; i < 4; i++)
+				{
+					rawBlocksAfterMove ^= shiftUpInfos[i].column << (4 * i);
+					reward += shiftUpInfos[i].reward;
+				}
 			}
 			return BitBoard(rawBlocksAfterMove);
 		case Direction::Down:
-			transposedRawBlocks = BitBoardOperationSet.Transpose(rawBlocks);
-			ColumnShiftInfo shiftDownInfos[4]
 			{
-				BitBoardShiftTableSet.columnShiftDownTable[(transposedRawBlocks >> 0) & 0xFFFF],
-				BitBoardShiftTableSet.columnShiftDownTable[(transposedRawBlocks >> 16) & 0xFFFF],
-				BitBoardShiftTableSet.columnShiftDownTable[(transposedRawBlocks >> 32) & 0xFFFF],
-				BitBoardShiftTableSet.columnShiftDownTable[(transposedRawBlocks >> 48) & 0xFFFF]
-			};
-			for (int i = 0; i < 4; i++)
-			{
-				rawBlocksAfterMove ^= shiftDownInfos[i].column << (4 * i);
-				reward += shiftDownInfos[i].reward;
+				transposedRawBlocks = BitBoardOperationSet.Transpose(rawBlocks);
+				ColumnShiftInfo shiftDownInfos[4]
+				{
+					BitBoardShiftTableSet.columnShiftDownTable[(transposedRawBlocks >> 0) & 0xFFFF],
+					BitBoardShiftTableSet.columnShiftDownTable[(transposedRawBlocks >> 16) & 0xFFFF],
+					BitBoardShiftTableSet.columnShiftDownTable[(transposedRawBlocks >> 32) & 0xFFFF],
+					BitBoardShiftTableSet.columnShiftDownTable[(transposedRawBlocks >> 48) & 0xFFFF]
+				};
+				for (int i = 0; i < 4; i++)
+				{
+					rawBlocksAfterMove ^= shiftDownInfos[i].column << (4 * i);
+					reward += shiftDownInfos[i].reward;
+				}
 			}
 			return BitBoard(rawBlocksAfterMove);
 		case Direction::Left:
-			RowShiftInfo shiftLeftInfos[4] =
 			{
-				BitBoardShiftTableSet.rowShiftLeftTable[(rawBlocks >> 0) & 0xFFFF],
-				BitBoardShiftTableSet.rowShiftLeftTable[(rawBlocks >> 16) & 0xFFFF],
-				BitBoardShiftTableSet.rowShiftLeftTable[(rawBlocks >> 32) & 0xFFFF],
-				BitBoardShiftTableSet.rowShiftLeftTable[(rawBlocks >> 48) & 0xFFFF]
-			};
-			for (int i = 0; i < 4; i++)
-			{
-				rawBlocksAfterMove ^= ((unsigned long long)shiftLeftInfos[i].row) << (16 * i);
-				reward += shiftLeftInfos[i].reward;
+				RowShiftInfo shiftLeftInfos[4] =
+				{
+					BitBoardShiftTableSet.rowShiftLeftTable[(rawBlocks >> 0) & 0xFFFF],
+					BitBoardShiftTableSet.rowShiftLeftTable[(rawBlocks >> 16) & 0xFFFF],
+					BitBoardShiftTableSet.rowShiftLeftTable[(rawBlocks >> 32) & 0xFFFF],
+					BitBoardShiftTableSet.rowShiftLeftTable[(rawBlocks >> 48) & 0xFFFF]
+				};
+				for (int i = 0; i < 4; i++)
+				{
+					rawBlocksAfterMove ^= ((unsigned long long)shiftLeftInfos[i].row) << (16 * i);
+					reward += shiftLeftInfos[i].reward;
+				}
 			}
 			return BitBoard(rawBlocksAfterMove);
 		case Direction::Right:
-			RowShiftInfo shiftRightInfos[4] =
 			{
-				BitBoardShiftTableSet.rowShiftRightTable[(rawBlocks >> 0) & 0xFFFF],
-				BitBoardShiftTableSet.rowShiftRightTable[(rawBlocks >> 16) & 0xFFFF],
-				BitBoardShiftTableSet.rowShiftRightTable[(rawBlocks >> 32) & 0xFFFF],
-				BitBoardShiftTableSet.rowShiftRightTable[(rawBlocks >> 48) & 0xFFFF]
-			};
-			for (int i = 0; i < 4; i++)
-			{
-				rawBlocksAfterMove ^= ((unsigned long long)shiftRightInfos[i].row) << (16 * i);
-				reward += shiftRightInfos[i].reward;
+				RowShiftInfo shiftRightInfos[4] =
+				{
+					BitBoardShiftTableSet.rowShiftRightTable[(rawBlocks >> 0) & 0xFFFF],
+					BitBoardShiftTableSet.rowShiftRightTable[(rawBlocks >> 16) & 0xFFFF],
+					BitBoardShiftTableSet.rowShiftRightTable[(rawBlocks >> 32) & 0xFFFF],
+					BitBoardShiftTableSet.rowShiftRightTable[(rawBlocks >> 48) & 0xFFFF]
+				};
+				for (int i = 0; i < 4; i++)
+				{
+					rawBlocksAfterMove ^= ((unsigned long long)shiftRightInfos[i].row) << (16 * i);
+					reward += shiftRightInfos[i].reward;
+				}
 			}
 			return BitBoard(rawBlocksAfterMove);
 		default:
@@ -248,61 +251,69 @@ namespace Game2048_Game_Library
 		switch (direction)
 		{
 		case Direction::Up:
-			transposedRawBlocks = BitBoardOperationSet.Transpose(rawBlocks);
-			ColumnShiftInfo shiftUpInfos[4] = 
 			{
-				BitBoardShiftTableSet.columnShiftUpTable[(transposedRawBlocks >> 0) & 0xFFFF],
-				BitBoardShiftTableSet.columnShiftUpTable[(transposedRawBlocks >> 16) & 0xFFFF],
-				BitBoardShiftTableSet.columnShiftUpTable[(transposedRawBlocks >> 32) & 0xFFFF],
-				BitBoardShiftTableSet.columnShiftUpTable[(transposedRawBlocks >> 48) & 0xFFFF]
-			};
-			for (int i = 0; i < 4; i++)
-			{
-				rawBlocksAfterMove ^= shiftUpInfos[i].column << (4 * i);
-				reward += shiftUpInfos[i].reward;
+				transposedRawBlocks = BitBoardOperationSet.Transpose(rawBlocks);
+				ColumnShiftInfo shiftUpInfos[4] =
+				{
+					BitBoardShiftTableSet.columnShiftUpTable[(transposedRawBlocks >> 0) & 0xFFFF],
+					BitBoardShiftTableSet.columnShiftUpTable[(transposedRawBlocks >> 16) & 0xFFFF],
+					BitBoardShiftTableSet.columnShiftUpTable[(transposedRawBlocks >> 32) & 0xFFFF],
+					BitBoardShiftTableSet.columnShiftUpTable[(transposedRawBlocks >> 48) & 0xFFFF]
+				};
+				for (int i = 0; i < 4; i++)
+				{
+					rawBlocksAfterMove ^= shiftUpInfos[i].column << (4 * i);
+					reward += shiftUpInfos[i].reward;
+				}
 			}
 			return rawBlocksAfterMove;
 		case Direction::Down:
-			transposedRawBlocks = BitBoardOperationSet.Transpose(rawBlocks);
-			ColumnShiftInfo shiftDownInfos[4] =
 			{
-				BitBoardShiftTableSet.columnShiftDownTable[(transposedRawBlocks >> 0) & 0xFFFF],
-				BitBoardShiftTableSet.columnShiftDownTable[(transposedRawBlocks >> 16) & 0xFFFF],
-				BitBoardShiftTableSet.columnShiftDownTable[(transposedRawBlocks >> 32) & 0xFFFF],
-				BitBoardShiftTableSet.columnShiftDownTable[(transposedRawBlocks >> 48) & 0xFFFF]
-			};
-			for (int i = 0; i < 4; i++)
-			{
-				rawBlocksAfterMove ^= shiftDownInfos[i].column << (4 * i);
-				reward += shiftDownInfos[i].reward;
+				transposedRawBlocks = BitBoardOperationSet.Transpose(rawBlocks);
+				ColumnShiftInfo shiftDownInfos[4] =
+				{
+					BitBoardShiftTableSet.columnShiftDownTable[(transposedRawBlocks >> 0) & 0xFFFF],
+					BitBoardShiftTableSet.columnShiftDownTable[(transposedRawBlocks >> 16) & 0xFFFF],
+					BitBoardShiftTableSet.columnShiftDownTable[(transposedRawBlocks >> 32) & 0xFFFF],
+					BitBoardShiftTableSet.columnShiftDownTable[(transposedRawBlocks >> 48) & 0xFFFF]
+				};
+				for (int i = 0; i < 4; i++)
+				{
+					rawBlocksAfterMove ^= shiftDownInfos[i].column << (4 * i);
+					reward += shiftDownInfos[i].reward;
+				}
 			}
 			return rawBlocksAfterMove;
 		case Direction::Left:
-			RowShiftInfo shiftLeftInfos[4]
 			{
-				BitBoardShiftTableSet.rowShiftLeftTable[(rawBlocks >> 0) & 0xFFFF],
-				BitBoardShiftTableSet.rowShiftLeftTable[(rawBlocks >> 16) & 0xFFFF],
-				BitBoardShiftTableSet.rowShiftLeftTable[(rawBlocks >> 32) & 0xFFFF],
-				BitBoardShiftTableSet.rowShiftLeftTable[(rawBlocks >> 48) & 0xFFFF]
-			};
-			for (int i = 0; i < 4; i++)
-			{
-				rawBlocksAfterMove ^= ((unsigned long long)shiftLeftInfos[i].row) << (16 * i);
-				reward += shiftLeftInfos[i].reward;
+				RowShiftInfo shiftLeftInfos[4]
+				{
+					BitBoardShiftTableSet.rowShiftLeftTable[(rawBlocks >> 0) & 0xFFFF],
+					BitBoardShiftTableSet.rowShiftLeftTable[(rawBlocks >> 16) & 0xFFFF],
+					BitBoardShiftTableSet.rowShiftLeftTable[(rawBlocks >> 32) & 0xFFFF],
+					BitBoardShiftTableSet.rowShiftLeftTable[(rawBlocks >> 48) & 0xFFFF]
+				};
+				for (int i = 0; i < 4; i++)
+				{
+					rawBlocksAfterMove ^= ((unsigned long long)shiftLeftInfos[i].row) << (16 * i);
+					reward += shiftLeftInfos[i].reward;
+				}
 			}
 			return rawBlocksAfterMove;
 		case Direction::Right:
-			RowShiftInfo shiftRightInfos[4] =
 			{
-				BitBoardShiftTableSet.rowShiftRightTable[(rawBlocks >> 0) & 0xFFFF],
-				BitBoardShiftTableSet.rowShiftRightTable[(rawBlocks >> 16) & 0xFFFF],
-				BitBoardShiftTableSet.rowShiftRightTable[(rawBlocks >> 32) & 0xFFFF],
-				BitBoardShiftTableSet.rowShiftRightTable[(rawBlocks >> 48) & 0xFFFF]
-			};
-			for (int i = 0; i < 4; i++)
-			{
-				rawBlocksAfterMove ^= ((unsigned long long)shiftRightInfos[i].row) << (16 * i);
-				reward += shiftRightInfos[i].reward;
+				RowShiftInfo shiftRightInfos[4] =
+				{
+					BitBoardShiftTableSet.rowShiftRightTable[(rawBlocks >> 0) & 0xFFFF],
+					BitBoardShiftTableSet.rowShiftRightTable[(rawBlocks >> 16) & 0xFFFF],
+					BitBoardShiftTableSet.rowShiftRightTable[(rawBlocks >> 32) & 0xFFFF],
+					BitBoardShiftTableSet.rowShiftRightTable[(rawBlocks >> 48) & 0xFFFF]
+				};
+				for (int i = 0; i < 4; i++)
+				{
+					rawBlocksAfterMove ^= ((unsigned long long)shiftRightInfos[i].row) << (16 * i);
+					reward += shiftRightInfos[i].reward;
+				}
 			}
 			return rawBlocksAfterMove;
 		default:

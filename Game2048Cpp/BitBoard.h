@@ -1,6 +1,7 @@
 #pragma once
-#include"Direction.h"
-#include<random>
+#include "Direction.h"
+#include "BitBoardTableSet.h"
+#include <random>
 
 using namespace std;
 

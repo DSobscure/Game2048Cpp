@@ -111,15 +111,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BitBoard.cpp" />
-    <ClCompile Include="BitBoardOperationSet.cpp" />
-    <ClCompile Include="BitBoardScoreTableSet.cpp" />
-    <ClCompile Include="BitBoardShiftTableSet.cpp" />
+    <ClCompile Include="BitBoardTableSet.h" />
     <ClCompile Include="Game.cpp" />
-    <ClCompile Include="MathComputationTableSet.cpp" />
+    <ClCompile Include="MathComputationTableSet.h" />
     <ClCompile Include="Program.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BitBoard.h" />
+    <ClInclude Include="ConsoleGameEnvironment.h" />
     <ClInclude Include="Direction.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="resource.h" />
@@ -127,7 +126,17 @@
   <ItemGroup>
     <ResourceCompile Include="Game2048Cpp.rc" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\packages\msgpack-c.0.5.9.1\build\native\msgpack-c.targets" Condition="Exists('..\packages\msgpack-c.0.5.9.1\build\native\msgpack-c.targets')" />
   </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>此專案參考這部電腦上所缺少的 NuGet 封裝。請啟用 NuGet 封裝還原，以下載該封裝。如需詳細資訊，請參閱 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的檔案是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\msgpack-c.0.5.9.1\build\native\msgpack-c.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\msgpack-c.0.5.9.1\build\native\msgpack-c.targets'))" />
+  </Target>
 </Project>

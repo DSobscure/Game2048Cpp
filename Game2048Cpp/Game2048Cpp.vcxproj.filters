@@ -18,23 +18,17 @@
     <ClCompile Include="Program.cpp">
       <Filter>原始程式檔</Filter>
     </ClCompile>
-    <ClCompile Include="BitBoardScoreTableSet.cpp">
-      <Filter>原始程式檔</Filter>
-    </ClCompile>
-    <ClCompile Include="BitBoardShiftTableSet.cpp">
-      <Filter>原始程式檔</Filter>
-    </ClCompile>
-    <ClCompile Include="MathComputationTableSet.cpp">
-      <Filter>原始程式檔</Filter>
-    </ClCompile>
-    <ClCompile Include="BitBoardOperationSet.cpp">
-      <Filter>原始程式檔</Filter>
-    </ClCompile>
     <ClCompile Include="BitBoard.cpp">
       <Filter>原始程式檔</Filter>
     </ClCompile>
     <ClCompile Include="Game.cpp">
       <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="BitBoardTableSet.h">
+      <Filter>標頭檔</Filter>
+    </ClCompile>
+    <ClCompile Include="MathComputationTableSet.h">
+      <Filter>標頭檔</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -50,10 +44,16 @@
     <ClInclude Include="Game.h">
       <Filter>標頭檔</Filter>
     </ClInclude>
+    <ClInclude Include="ConsoleGameEnvironment.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Game2048Cpp.rc">
       <Filter>資源檔</Filter>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>
