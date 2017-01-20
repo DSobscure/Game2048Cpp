@@ -1,6 +1,8 @@
 #include<iostream>
 #include"Game.h"
 #include "ConsoleGameEnvironment.h"
+#include "LearningAgent.h"
+#include "TD_LearningAI.h"
 
 using namespace std;
 using namespace Game2048_Game_Library;
@@ -15,14 +17,34 @@ namespace Game2048_Game_Library
 
 int main()
 {
-	Game game;
+	cout << "Input Mode" << endl;
+	int commandCode;
+	cin >> commandCode;
 
-	while (!game.IsEnd())
+	int loadedCount = 0;
+	LearningAgent* agent = nullptr;
+	switch (commandCode)
 	{
-		StaticConsoleGameEnvironment::PrintBoard(game.Board());
-		game.Move(StaticConsoleGameEnvironment::GetDirection());
+		case 0:
+			agent = new LearningAgent(new TD_LearningAI(0.0025f, loadedCount));
+		break;
+		default:
+			cout << "Not Existed Command" << endl;
+			break;
 	}
-
-	system("PAUSE");
+	cout << "Loaded " << loadedCount << " TupleFeatures" << endl;
+	switch (commandCode)
+	{
+		case 0:
+			agent->Training("Basic", TranningMode::Classical, 1, 5000000, 1000, StaticConsoleGameEnvironment::PrintBoard);
+			break;
+		default:
+			cout << "Not Existed Command" << endl;
+			break;
+	}
+	if (agent != nullptr)
+	{
+		delete agent;
+	}
 	return 0;
 }

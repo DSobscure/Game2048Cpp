@@ -33,6 +33,33 @@
     <ClCompile Include="MultiLayerPerceptron.cpp">
       <Filter>原始程式檔</Filter>
     </ClCompile>
+    <ClCompile Include="TupleFeature.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="FourTupleFeature.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="SixTupleFeature.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="TupleNetwork.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="LearningAI.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="LearningAgent.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="MLP_RewardTrained_RewardLearningAI.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="RewardLearningAI.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="TD_LearningAI.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -51,6 +78,45 @@
       <Filter>標頭檔</Filter>
     </ClInclude>
     <ClInclude Include="MultiLayerPerceptron.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="TD_State.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="BestMoveNode.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRecord.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="TupleFeature.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="FourTupleFeature.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="TranningMode.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="SixTupleFeature.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="TupleNetwork.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="LearningAI.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="LearningAgent.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="MLP_RewardTrained_RewardLearningAI.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="RewardLearningAI.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="TD_LearningAI.h">
       <Filter>標頭檔</Filter>
     </ClInclude>
   </ItemGroup>

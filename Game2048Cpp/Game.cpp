@@ -15,9 +15,21 @@ namespace Game2048_Game_Library
 		score = 0;
 		step = 0;
 	}
-
+	Game::Game(Game& game)
+	{
+		board = game.board;
+		score = game.score;
+		step = game.step;
+	}
 	Game::~Game()
 	{
+	}
+	Game& Game::operator=(Game other)
+	{
+		board = other.board;
+		score = other.score;
+		step = other.step;
+		return *this;
 	}
 	BitBoard Game::Board()
 	{

@@ -8,7 +8,9 @@ namespace Game2048_Game_Library
 	public:
 		Game();
 		Game(unsigned long long rawBoard);
+		Game(Game& game);
 		~Game();
+		Game& operator=(Game other);
 		BitBoard Board();
 		int Score();
 		int Step();

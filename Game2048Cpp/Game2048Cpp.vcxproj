@@ -112,18 +112,40 @@
   <ItemGroup>
     <ClCompile Include="BitBoard.cpp" />
     <ClCompile Include="BitBoardTableSet.h" />
+    <ClCompile Include="FourTupleFeature.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="LearningAgent.cpp" />
+    <ClCompile Include="LearningAI.cpp" />
     <ClCompile Include="MathComputationTableSet.h" />
+    <ClCompile Include="MLP_RewardTrained_RewardLearningAI.cpp" />
     <ClCompile Include="MultiLayerPerceptron.cpp" />
     <ClCompile Include="Program.cpp" />
+    <ClCompile Include="RewardLearningAI.cpp" />
+    <ClCompile Include="SixTupleFeature.cpp" />
+    <ClCompile Include="TD_LearningAI.cpp" />
+    <ClCompile Include="TupleFeature.cpp" />
+    <ClCompile Include="TupleNetwork.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BestMoveNode.h" />
     <ClInclude Include="BitBoard.h" />
     <ClInclude Include="ConsoleGameEnvironment.h" />
     <ClInclude Include="Direction.h" />
+    <ClInclude Include="FourTupleFeature.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="GameRecord.h" />
+    <ClInclude Include="LearningAgent.h" />
+    <ClInclude Include="LearningAI.h" />
+    <ClInclude Include="MLP_RewardTrained_RewardLearningAI.h" />
     <ClInclude Include="MultiLayerPerceptron.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="RewardLearningAI.h" />
+    <ClInclude Include="SixTupleFeature.h" />
+    <ClInclude Include="TD_LearningAI.h" />
+    <ClInclude Include="TD_State.h" />
+    <ClInclude Include="TranningMode.h" />
+    <ClInclude Include="TupleFeature.h" />
+    <ClInclude Include="TupleNetwork.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Game2048Cpp.rc" />
